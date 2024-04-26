@@ -28,7 +28,7 @@
     {% block extra_js %}
     {% endblock %}
 
-    <title>Longdog {% block extra_title %}</title>
+    <title>Longdog {% block extra_title %}{% endblock %}</title>
   </head>
   <body>
     <header class="container-fluid fixed-top"></header>
@@ -45,6 +45,6 @@
 
     {% block postloadjs %}
     {% endblock %}
-    
+
   </body>
 </html>
