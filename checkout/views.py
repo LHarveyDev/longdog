@@ -1,4 +1,3 @@
-
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.conf import settings
@@ -14,6 +13,8 @@ import stripe
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
+
+    intent = None
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
@@ -89,7 +90,7 @@ def checkout(request):
     context = {
         'order_form': order_form,
         'stripe_public_key': stripe_public_key,
-        'client_secret': intent.client_secret,
+        'client_secret': intent.client_secret if intent else None,
     }
 
     return render(request, template, context)
