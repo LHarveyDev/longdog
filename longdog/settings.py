@@ -26,8 +26,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
 
-DEBUG = False
-
 ALLOWED_HOSTS = ['8000-lharveydev-longdog-acwianx8ly1.ws-eu110.gitpod.io', 'longdog-be27da85e7e6.herokuapp.com']
 
 
@@ -166,9 +164,8 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
+# https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
