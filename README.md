@@ -11,9 +11,13 @@ Longdog is my submission for Milestone Project 4.Longdog is an e-commerce site d
     
 2. [Features](#features)
     * [Navigation](#Navigation-bar)
-    * [Footer](#footer)
     * [Home page](#home-page)
-    * [add your pages](#)
+    * [Home page](#about-page)
+    * [Home page](#products-page)
+    * [Home page](#bag-page)
+    * [Home page](#checkout-page)
+    * [Home page](#profile-page)
+   
    
 
 3. [Technologies Used](#technologies-used)
@@ -29,26 +33,24 @@ Longdog is my submission for Milestone Project 4.Longdog is an e-commerce site d
 ### User Stories
 - #### First Time Visitor Goals
 
-    1. As a First Time Visitor, I want to easily understand the main purpose of the site and learn how to navigate to the areas I want to use.
-    2. As a First Time Visitor, I want to be able to view the products on offer.
-    3. As a First Time Visitor, I want to find out be able to assess the quality and prices of the products on offer.
-    4. As a First Time Visitor, I want to register.
-    5. As a First Time Visitor, I want to add an item to my basket and pay.
-    6. As a First Time Visitor, I want to locate their social media links to see their followings on social media to determine how trusted and known they are.
+    1. As a First Time Visitor, I want to easily understand the purpose of the site and be able to navigate to the areas I want to use.
+    2. As a First Time Visitor, I want to learn about the company and its values.
+    3. As a First Time Visitor, I want to be able to view the products on offer.
+    4. As a First Time Visitor, I want to be able to assess the quality and prices of the products on offer.
+    5. As a First Time Visitor, I want to register.
+    6. As a First Time Visitor, I want to add an item to my basket.
+    7. As a First Time Visitor, I want to view/amend/delete the contents of my basket.
+    8. As a First Time Visitor, I want to checkout my basket.
 
 - #### Returning Visitor Goals
 
     1. As a Returning Visitor, I want to log in and view my profile and past purchases.
     2. As a Returning Visitor, I want to make a new or repeat purchase.
-    3. As a Returning Visitor, I want to amend/cancel a previous order.
-    4. As a Returning Visitor, I want to check if there are any social media updates.
 
 - #### Frequent User Goals
 
     1. As a Frequent User, I want to log in and view my profile and past purchases.
     2. As a Returning Visitor, I want to make a new or repeat purchase.
-    3. As a Returning Visitor, I want to amend/cancel a previous order.
-    4. As a Frequent User, I want to check if there are any social media updates.
 
 ### Wireframes
 Attach wireframes in this section

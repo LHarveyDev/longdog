@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<!-- White background overlay -->
+<div class="overlay"></div>
+<!-- Add Review Banner -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col text-center my-auto px-0">
+      <h4 class="page_top_banner text-uppercase text-dark pt-2 mb-2">EDIT YOUR REVIEW
+      </h4>
+    </div>
+  </div>
+</div>
+<!-- If user is authenticated then show the add review form -->
+{% if user.is_authenticated %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <!-- Review form -->
+      <form action="{% url 'edit_review' review.id %}" class="form" method="POST">
+        {% csrf_token %}
+        <div class="">
+          <p class="small mb-0 text-left">required *</p>
+          <!-- Message from field - None editable, username is auto generated to current logged in user -->
+          <p class="text-left mb-3 mt-0 user-input-p text-muted">
+            Review From:
+            <input disabled="disabled" class="user-input-display" type="text" value="{{ user }}" readonly>
+          </p>
+          <!-- Crispy review form -->
+          {{ form|crispy }}
+          </p>
+        </div>
+        <!-- Cancel Adding Product Review Button -->
+        <a class="btn cart-shopping-button rounded-0" href="{% url 'products' %}">Cancel</a>
+        <!-- Submit Review button -->
+        <button class="btn cart-shopping-button rounded-0" type="submit"><i class="fas fa-envelope"></i> Submit
+          Review</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% else %}
+<!-- If user is not authenticated -->
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <!-- Message text only registered users can leave a review -->
+      <p class="mt-3 mb-2">Sorry, only registered users are allowed to leave reviews on our website. If you wish to
+        leave a review for an item you have purchased then you can sign up by clicking the sign up button below:</p>
+      <!-- Sign up button -->
+      <a class="btn rounded-0 cart-shopping-button mt-0" href="{% url 'account_signup' %}">Sign Up Here</a>
+      <br>
+      <!-- Message to log in if already registered -->
+      <p class="mt-3 mb-2">Or, if you are already a registered user you can log in and then leave your review:</p>
+      <a class="btn rounded-0 cart-shopping-button mt-0" href="{% url 'account_login' %}">Log In Here</a>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endblock %}

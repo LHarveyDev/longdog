@@ -98,6 +98,60 @@
                             {% endwith %}
                         </div>
                     </form>
+                    <!-- Horizontal Line -->
+                    <p class="mb-1 text-uppercase">Reviews</p>
+                    <!-- If user is registered on the site they can leave a review-->
+                    {% if user.is_authenticated %}
+                    <p class="mb-1 mt-1">If you've purchased this product
+                    why not leave a review so others can see your feedback</p>
+                    <a href="{% url 'add_review' %}" class="mt-1 btn rounded-0 cart-shopping-button">Review this product</a>
+                    <!-- Line Break -->
+                    <br>
+                    {% else %}
+                    <!-- None registered users are encouraged to register to leave reviews -->
+                    <p>
+                    Have you purchased this product? If you are a registered/logged in user then you can leave a review for this
+                    item and let others know your feedback. Login or register by clicking on the My Account icon on the top right
+                    of the page.
+                    </p>
+                    {% endif %}
+                    <!-- Reviews -->
+                    <div class="">
+                    <p class="mb-0">
+                        <!-- Read product reviews button -->
+                        <button class="btn rounded-0 cart-shopping-button" type="button" data-toggle="collapse"
+                        data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        Read Product Reviews
+                        </button>
+                    </p>
+                    <br>
+                    <div class="collapse" id="collapseExample">
+                        <div class="card card-body pl-0 pt-1 pb-1 review-scroll">
+                        <!-- Reviews -->
+                        <p class="">
+                            <!-- Insert review form in here -->
+                            {% for review in reviews %}
+                            <!-- Name of reviewer -->
+                            <p class="mb-1 mt-1">
+                            {{ review.review_title}} <br> Reviewed by: {{ review.reviewer }}
+                            </p>
+                            <!-- Product Review -->
+                            <p class="font-italic mb-1">
+                            "{{ review.review }}"
+                            </p>
+                            <!-- Review Date -->
+                            <p class="mb-0">
+                            {{ review.date }}
+                            <br>
+                            <!-- Edit button only visible to authenticated users-->
+                            {% if user|lower == review.reviewer|lower %}
+                            <a href="{% url 'edit_review' review.id %}">
+                                Edit Your Review
+                            </a>
+                            {% endif %}
+                            </p>
+                            {% endfor %}
+                        </p>
                 </div>
             </div>
         </div>
