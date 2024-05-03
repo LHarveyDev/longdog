@@ -107,6 +107,11 @@ input[name='q']::placeholder {
     color: #aab7c4;
 }
 
+.responsive-img {
+        width: 100%;
+        height: auto;    
+}
+
 /* ------------------------------- bootstrap toasts */
 
 .message-container {
