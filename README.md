@@ -188,7 +188,9 @@ Actual Enviroment variables not disclosed for security
 - How to make card images the same size as each other [Stack Overflow](https://stackoverflow.com/questions/37287153/how-to-get-images-in-bootstraps-card-to-be-the-same-height-width)
 - Resetting db in Django by Farheen Shahid[Scaler.com](https://www.scaler.com/topics/django/resetting-db-in-django/)
 ### Content
-
+- Photo by <a href="https://unsplash.com/@sapegin?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Artem Sapegin</a> on <a href="https://unsplash.com/photos/short-coated-brown-dog-Ugg-EIfzy0c?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+- Photo by <a href="https://unsplash.com/@mitchorr?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Mitchell Orr</a> on <a href="https://unsplash.com/photos/brown-and-white-short-coated-dog-on-gray-rock-Cnqze55CDa8?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+  
 ## Acknowledgments
 
 - My Mentor Can Sucullu for continuous helpful feedback.

@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'False'
 
-ALLOWED_HOSTS = ['8000-lharveydev-longdog-acwianx8ly1.ws-eu110.gitpod.io',
+ALLOWED_HOSTS = ['8000-lharveydev-longdog-acwianx8ly1.ws-eu111.gitpod.io',
                  'longdog-be27da85e7e6.herokuapp.com']
 
 # Application definition
@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'profiles',
     'reviews',
     'contact_us',
-    'articles',
+    'faqs',
 
     # Other
     'crispy_forms',
