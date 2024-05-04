@@ -20,7 +20,7 @@
             <img src="{{ MEDIA_URL }}about_us.jpg" alt="whippet looking at camera" class="img-fluid">
         </div>
         <div class="col-sm-12 col-md-6 mt-2">
-            <p>
+            <p id="about-us">
                 Longdog was created in 2015 to fulfill a need from Sighthound owners for quality, good value
                 products.
                 As an owner of Greyhounds and Whippets all my life, I felt I was ideally placed to source items that I know
@@ -45,7 +45,7 @@
             <form action="{% url 'contact_us' %}" method="post" class="form text-center">
                 {% csrf_token %}
                 <div class="contact-form">
-                    <p class="text-left mb-2 mt-2 user-input-p">
+                    <p id="contact-us" class="text-left mb-2 mt-2 user-input-p">
                         We love to hear from our customers. Get in touch to tell us what you think of our products or
                         perhaps you have a suggestion for something you would like us to stock.
                     </p>
