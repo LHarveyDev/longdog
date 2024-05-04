@@ -8,7 +8,7 @@
         </div>
     </div>
 {% endblock %}
-
+<!-- Display Product detail in cards -->
 {% block content %}
     <div class="overlay"></div>
     <div class="container-fluid">
@@ -28,7 +28,7 @@
             </div>
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="product-details-container mb-5 mt-md-5">
-                    <p class="mb-0">{{ product.name }}</p>
+                    <p class="mb-0 text-uppercase">{{ product.name }}</p>
                     <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
                     {% if product.category %}
                     <p class="small mt-1 mb-0">
@@ -36,6 +36,7 @@
                         </a>
                     </p>
                     {% endif %}
+                    <!-- Allow admin to edit/delete product details -->
                     {% if request.user.is_superuser %}
                         <small class="ml-3">
                             <a href="{% url 'edit_product' product.id %}">Edit</a> | 
@@ -46,6 +47,7 @@
                     <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                         {% csrf_token %}
                         <div class="form-row">
+                            <!-- Display size dropdown -->
                             {% with product.has_sizes as s %}
                             {% if s %}
                                 <div class="col-12">
@@ -83,7 +85,7 @@
                                     </div>
                                 </div>
                             </div>
-
+                            <!-- Back to shopping button -->
                             <div class="col{% if s %}-12 mt-2{% endif %}">
                                 <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
                                     <span class="icon">
@@ -99,26 +101,23 @@
                     </form>
                     <hr>
                     <p class="mb-1 text-uppercase">Reviews</p>
-                    <!-- If user is registered on the site they can leave a review-->
+                    <!-- If user is registered they can leave a review-->
                     {% if user.is_authenticated %}
                     <p class="mb-1 mt-1">If you've purchased this product
                     why not leave a review so others can see your feedback</p>
-                    <a href="{% url 'add_review' %}" class="mt-1 btn rounded-0 cart-shopping-button">Review this product</a>
-                    <!-- Line Break -->
-                    <br>
+                    <a href="{% url 'add_review' %}" class="btn btn-black rounded-0 text-uppercase mt-1">Review this product</a>
                     {% else %}
-                    <!-- None registered users are encouraged to register to leave reviews -->
+                    <!-- Unregistered users are encouraged to register to leave reviews -->
                     <p>
                     Have you purchased this product? If you are a registered/logged in user then you can leave a review for this
-                    item and let others know your feedback. Login or register by clicking on the My Account icon on the top right
-                    of the page.
+                    item and let others know your feedback. Login or register by clicking on the My Account icon.
                     </p>
                     {% endif %}
                     <!-- Reviews -->
                     <div class="">
                     <p class="mb-0">
                         <!-- Read product reviews button -->
-                        <button class="btn rounded-0 cart-shopping-button" type="button" data-toggle="collapse"
+                        <button class="btn btn-black rounded-0 text-uppercase mt-1" type="button" data-toggle="collapse"
                         data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                         Read Product Reviews
                         </button>
@@ -126,31 +125,26 @@
                     <br>
                     <div class="collapse" id="collapseExample">
                         <div class="card card-body pl-0 pt-1 pb-1 review-scroll">
-                        <!-- Reviews -->
                         <p class="">
-                            <!-- Insert review form in here -->
                             {% for review in reviews %}
-                            <!-- Name of reviewer -->
                             <p class="mb-1 mt-1">
                             {{ review.review_title}} <br> Reviewed by: {{ review.reviewer }}
                             </p>
-                            <!-- Product Review -->
                             <p class="font-italic mb-1">
                             "{{ review.review }}"
                             </p>
-                            <!-- Review Date -->
                             <p class="mb-0">
                             {{ review.date }}
-                            <br>
+                            </p>
+                            <hr>
                             <!-- Edit button only visible to authenticated users-->
                             {% if user|lower == review.reviewer|lower %}
                             <a href="{% url 'edit_review' review.id %}">
                                 Edit Your Review
                             </a>
                             {% endif %}
-                            </p>
                             {% endfor %}
-                        </p>
+                    </div>
                 </div>
             </div>
         </div>
