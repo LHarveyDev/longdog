@@ -2,47 +2,60 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
+<div class="overlay"></div>
 <div class="container h-100">
-    <div class="row h-100">
-        <div class="col-7 col-md-6 my-auto">
-            <h4 class="display-4 logo-font text-black center">
-            About Us
-            </h4>
-            <div class="my-5">
-                <p>
-                    Longdog was created in 2015 to fulfill a need from Sighthound owners for quality, good value products. As an owner of Greyhounds and Whippets all my life I am ideally placed to source items that I know you and your dogs will love. 
-                    The specific requirements of 'Longdogs' mean they don't often fit into regular dog clothing and also have particular requirements when it comes to bedding and feeding. 
-                    I research and build relationships with suppliers to ensure that you the customer is offered high quality at a reasonable price.
-                    Please feel free to browse the <a href="{% url 'products' %}"> store</a> or drop us a message using the form below.
-                </p>
-            </div>
+    <h4 class="display-4 logo-font text-black center">
+        About Us
+    </h4>
+    <div class="row">
+        <div class="col-sm-12 col-md-6">
+            <img src="{{ MEDIA_URL }}about_us.jpg" alt="whippet looking at camera" class="img-fluid">
+        </div>
+        <div class="col-sm-12 col-md-6 mt-2">
+            <p>
+                Longdog was created in 2015 to fulfill a need from Sighthound owners for quality, good value
+                products.
+                As an owner of Greyhounds and Whippets all my life, I felt I was ideally placed to source items that I know
+                you and your dogs will love.
+                <br>
+                The specific build of 'Longdogs' mean they don't often fit into regular dog clothing and also
+                have particular requirements when it comes to bedding and feeding.
+                <br>
+                I research and build relationships with suppliers to ensure that you the customer is offered high
+                quality at a reasonable price.
+                Please feel free to browse the <a href="{% url 'products' %}"> store</a> or drop us a message using
+                the form below.
+            </p>
         </div>
     </div>
-    <div class="row h-100">
-        <div class="col-7 col-md-6 my-auto">
+
+    <div class="row">
+        <div class="col-12">
             <h4 class="display-4 logo-font text-black center">
                 Contact Us
             </h4>
             <form action="{% url 'contact_us' %}" method="post" class="form text-center">
                 {% csrf_token %}
                 <div class="contact-form">
-                    <p class="text-left mb-2 mt-2 user-input-p text-muted">
-                        We love to hear from our customers. Get in touch to tell us what you think of our products or perhaps you have a suggestion for something you would like us to stock.
+                    <p class="text-left mb-2 mt-2 user-input-p">
+                        We love to hear from our customers. Get in touch to tell us what you think of our products or
+                        perhaps you have a suggestion for something you would like us to stock.
                     </p>
                     <!-- Crispy form - Subject, message & email -->
                     <p class="small mb-0 text-left">required *</p>
                     {{ form|crispy }}
                 </div>
                 <!-- Send message button -->
-                <button class="btn cart-shopping-button rounded-0" type="submit"><i class="fas fa-envelope"></i> Send Message</button>
+                <button class="btn rounded-0 text-uppercase mt-1" type="submit"><i class="fas fa-envelope"></i> Send
+                    Message</button>
             </form>
         </div>
     </div>
