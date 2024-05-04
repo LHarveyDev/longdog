@@ -1,7 +1,8 @@
 ![Am I Responsive](media/screengrabs/amiresponsive.jpg)
 # Longdog
-Longdog is my submission for Milestone Project 4.Longdog is an e-commerce site dedicated to the needs of Sighthound owners and their dogs. The site will sell clothing, toys and accessories, in fact anything a Longdog might require!
+Longdog is my submission for Milestone Project 4.Longdog is a Full-Stack e-commerce site dedicated to the needs of Sighthound owners and their dogs. The site will sell clothing, toys and accessories, in fact anything a Longdog might require!
 The basic features of browsing the content and making a purchase can be carried out without registering, however the user is encouraged to register in order to make future ordering simpler and they will also be able to contribute to the site by leaving feedback in the form of product reviews.
+This project has been created using HTML, CSS, JavaScript and Django. Stripe was utilised to facilitate payments and Bootstrap was used for desin purposes.
 
 ## Table Of Contents:
 1. [Design & Planning](#design-&-planning)
@@ -28,12 +29,11 @@ The basic features of browsing the content and making a purchase can be carried 
    
 
 3. [Technologies Used](#technologies-used)
-4. [Libraries](#libraries-used)
-5. [Testing](#testing)
-6. [Bugs](#bugs)
-7. [Deployment](#deployment)
-8. [Credits](#credits)
-9. [Acknowledgment](#acknowledgment)
+4. [Testing](#testing)
+5. [Bugs](#bugs)
+6. [Deployment](#deployment)
+7. [Credits](#credits)
+8. [Acknowledgment](#acknowledgment)
 
 ## Design & Planning:
 
@@ -136,7 +136,9 @@ Image of the database diagram for your project
   ![Checkout page](media/screengrabs/checkout.jpg)  
   The Checkout page is split into four sections. The first details the order listing the individual items and giving a grand total. The next section is 'Details' containing a form field asking for Full Name and Email Address (both required fields). Following that there is a 'Delivery' section requiring the user to input Phone No., Address, Poscode and Country. There is then a prompt to encourage non-registered users to create an account or for registered users to login. The advantage of registering being you can keep track of past orders in the 'My Profile' section and also the delivery details will be saved for future purchases. Finally there is the 'Payment' section which asks for a 'Card number' and 'Expiry Date'. Once happy the user can 'Complete Order' or return and 'Adjust Bag'.
   On completion of checkout a confirmation pop-up will appear in the top right-hand corner to provide reassurance that the purchase was successful. The user will also receive an email confirmation of their order.    
-  ![Checkout page](media/screengrabs/order_success.jpg)
+  ![Checkout page](media/screengrabs/order_success.jpg)    
+  Stripe has been used to facilitate payments. On checkout the following test card details can be entered to simulate the payment process, no actual payment will be taken.    
+  Card No: 4242 4242 4242 4242 Exp Date: 12/27 CVS: 111 Zip: 12345
 
   - ### Profile Page    
   ![Profile page](media/screengrabs/profile.jpg)  
@@ -165,7 +167,7 @@ Image of the database diagram for your project
 1. [Balsamiq:](https://balsamiq.com/)
    - Balsamiq was used to create the [wireframes](#wireframes) during the design process
 1. [dbdiagram:](https://dbdiagram.io)
-   - dbdiagram was used to create the [database schema](/documentation/database_schema.png) during the design process
+   - dbdiagram was used to create the [database schema](#database-diagram) during the design process
 1. [Django:](https://www.djangoproject.com/)
    - Django was used to create the Python web framework.
 1. [Djecrety:](https://djecrety.ir/)
@@ -189,38 +191,69 @@ Image of the database diagram for your project
 1. [GitHub:](https://github.com/)
    - GitHub was used to store the projects code after being pushed from Git.
 1. [AWS:](https://aws.amazon.com/)
-   - AWS was used to store my statis and media images.
+   - AWS was used to store my static and media files.
 1. [ElephantSQL:](https://elephantsql.com/)
    - Elephant SQL was used as my PostgreSQL database.
 1. [Heroku:](https://heroku.com/)
    - Heroku was used to deploy my project.
+1. [Stripe:](https://stripe.com/)
+   - Stripe was used to facilitate payments.     
+
 ## Testing
-Important part of your README!!!
 ### Google's Lighthouse Performance
-Screenshots of certain pages and scores (mobile and desktop)
+Testing was carried out on selected pages for both mobile and desktop. I was alerted to the fact that some of my images needed resizing during this testing so it proved very worthwhile.    
+The Home Page (Mobile)      
+![Lighthouse](media/screengrabs/lighthouse_home_mobile.jpg)    
+The Products Page (Mobile)  
+![Lighthouse](media/screengrabs/lighthouse_products_mobile.jpg)    
+The FAQs Page (Desktop)    
+![Lighthouse](media/screengrabs/lighthouse_home_mobile.jpg)     
+
 ### Browser Compatibility
-I have tested compatibility on the following browsers. Safari, Chrome, Edge and Firefox.
+I have tested compatibility on the following browsers. Safari, Chrome, Edge and Firefox.    
+
 ### Responsiveness
-Responsive on all device sizes - This was checked using [Am I Responsive](https://ui.dev/amiresponsive) and by asking friends and family to test it on their devices. The devices checked included Samsung Galaxy, iPhone 8 and 10, iPad Air, Chromebook, Laptop and PC.
+Responsive on all device sizes - This was checked using [Am I Responsive](https://ui.dev/amiresponsive) and by asking friends and family to test it on their devices. The devices checked included Samsung Galaxy, iPhone 8 and 10, iPad Air, Chromebook, Laptop and PC.    
+
 ### Code Validation
-Validate your code HTML, CSS, JS & Python - display screenshots
+- **HTML**    
+The [W3 HTML5](https://validator.w3.org/) validation tool was used. I validated by URI, no errors were found.
+![HTML Validator](media/screengrabs/html_validation.jpg)
+- **CSS**    
+The [W3 CSS](https://jigsaw.w3.org/css-validator/) validation tool was used. I validated by URI. No errors were found. 
+![CSS Validator](media/screengrabs/css_validation.jpg)
+- **JS**    
+The [jshint](https://www.jshint.com/) validation tool was used. There were errors relating to the use of $ but this was necessary for stripe initialisation so can be dismissed. No other syntax errors were identified.        
+![JS Validator](media/screengrabs/js_validation.jpg)
+- **PYTHON**    
+The [CI Python Linter](https://pep8ci.herokuapp.com/) validation tool was used. No errors were found.    
+![Python Validator](media/screengrabs/python_validation.jpg)    
+
 ### Manual Testing user stories
-Test all your user stories, you an create table 
+I asked family, friends and work colleagues to test my site on their devices and report back any issues. This group encompassed a wide range of ages and abilities. I felt this gave me a fair representation of how my app would be used in a real world situation and the feedback was very useful.      
 User Story |  Test | Pass
 --- | --- | :---:
-paste here you user story | what is visible to the user and what action they should perform | &check;
-- attach screenshot
+Unregistered user tries to log in | Flash message 'Not Yet Registered' and redirect to Register page | &check;
+Registered user enters the incorrect password | Flash message 'Incorrect Password and/or Username' | &check;
+User tries to create a username or password without the minimum number of characters | Helper text explains you need to use more characters | &check;
+User tries to perform a search without entering a keyword | Helper text appears 'Please enter a search term' |  &check;
+User performs a search with no results | Message 'No Products found for....' | &check;
+Admin adds a product without an image | Placeholder image is displayed instead | &check;
+User tries to edit/delete a review not created by them | Edit/Delete buttons are not available to them | &check;      
+
 ### Manual Testing features
-Test all your features, you can use the same approach 
 | Status | feature
 |:-------:|:--------|
-| &check; | description
-- attach screenshot
+| &check; | User can perform a search of the database
+| &check; | User can register successfully and has access to their profile page
+| &check; | Registered User can add a review
+| &check; | Registered User can delete their own review
+| &check; | Registered User can log out  
 ## Bugs
 List of bugs and how did you fix them, you can create simple table
 | Bug | Fix
 |:-------:|:--------|
-|   |    |
+| Faq image was not responsive  |  added class img-fluid to div |
 ## Deployment
 This website is deployed to Heroku from a GitHub repository, the following steps were taken:
 
@@ -287,12 +320,17 @@ Actual Enviroment variables not disclosed for security
 ### Code
 - How to make card images the same size as each other [Stack Overflow](https://stackoverflow.com/questions/37287153/how-to-get-images-in-bootstraps-card-to-be-the-same-height-width)
 - Resetting db in Django by Farheen Shahid[Scaler.com](https://www.scaler.com/topics/django/resetting-db-in-django/)
-### Content
-- Photo by <a href="https://unsplash.com/@sapegin?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Artem Sapegin</a> on <a href="https://unsplash.com/photos/short-coated-brown-dog-Ugg-EIfzy0c?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+### Content    
+Product images sourced from Pets@Home. All text content created by myself. Website for educational purposes only.    
 
-Photo by <a href="https://unsplash.com/@sjung56?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">S J</a> on <a href="https://unsplash.com/photos/a-brown-and-white-dog-sitting-on-top-of-a-white-floor-508khDxcc5I?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+- Photo by <a href="https://unsplash.com/@sapegin?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Artem Sapegin</a> on <a href="https://unsplash.com/photos/short-coated-brown-dog-Ugg-EIfzy0c?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>    
+Hero image on Home page        
 
-Photo by <a href="https://unsplash.com/@pupscruffs?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Katie Bernotsky</a> on <a href="https://unsplash.com/photos/white-and-black-short-coated-dog-YA2jb4V0JAU?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+- Photo by <a href="https://unsplash.com/@sjung56?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">S J</a> on <a href="https://unsplash.com/photos/a-brown-and-white-dog-sitting-on-top-of-a-white-floor-508khDxcc5I?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>    
+Image on About Us page        
+
+- Photo by <a href="https://unsplash.com/@pupscruffs?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Katie Bernotsky</a> on <a href="https://unsplash.com/photos/white-and-black-short-coated-dog-YA2jb4V0JAU?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>    
+Image on FAQs page
   
     
 ## Acknowledgments
