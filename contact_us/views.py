@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from .forms import ContactMessagesForm
 
+
 def contact_us(request):
     if request.method == 'POST':
         messages_form = ContactMessagesForm(request.POST)
@@ -18,7 +19,7 @@ def contact_us(request):
             messages.error(request, "There was an error sending your message, please try to send it again")
             return redirect(reverse('contact_us'))
     else:
-        messages_form = ContactMessagesForm()  # Move the definition here
+        messages_form = ContactMessagesForm()
 
     template = 'contact_us/contact_us.html'
     context = {'form': messages_form}

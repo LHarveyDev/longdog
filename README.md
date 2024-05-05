@@ -226,9 +226,8 @@ The [W3 CSS](https://jigsaw.w3.org/css-validator/) validation tool was used. I v
 The [jshint](https://www.jshint.com/) validation tool was used. There were errors relating to the use of $ but this was necessary for stripe initialisation so can be dismissed. No other syntax errors were identified.        
 ![JS Validator](media/screengrabs/js_validation.jpg)
 - **PYTHON**    
-The [CI Python Linter](https://pep8ci.herokuapp.com/) validation tool was used. No errors were found.    
-![Python Validator](media/screengrabs/python_validation.jpg)    
-
+The [CI Python Linter](https://pep8ci.herokuapp.com/) validation tool was used. Errors relating to migration files and .vscode were ignored, all other errors were corrected to the best of my ability.        
+    
 ### Manual Testing user stories
 I asked family, friends and work colleagues to test my site on their devices and report back any issues. This group encompassed a wide range of ages and abilities. I felt this gave me a fair representation of how my app would be used in a real world situation and the feedback was very useful.      
 User Story |  Test | Pass
@@ -245,6 +244,7 @@ User tries to edit/delete a review not created by them | Edit/Delete buttons are
 | Status | feature
 |:-------:|:--------|
 | &check; | User can perform a search of the database
+| &check; | User can send a message to admin via the contact us form
 | &check; | User can register successfully and has access to their profile page
 | &check; | Registered User can add a review
 | &check; | Registered User can delete their own review
@@ -253,7 +253,10 @@ User tries to edit/delete a review not created by them | Edit/Delete buttons are
 List of bugs and how did you fix them, you can create simple table
 | Bug | Fix
 |:-------:|:--------|
-| Faq image was not responsive  |  added class img-fluid to div |
+| FAQ image was not responsive  |  added class img-fluid to div |
+| CSS was not displaying on deployed site  |  recreated AWS bucket keys |
+| Products not appearing on deployed site  |  database url was incorrect in env.py |
+| Contact Us app not connecting to database  |  deleted and remigrated |
 ## Deployment
 This website is deployed to Heroku from a GitHub repository, the following steps were taken:
 
@@ -310,12 +313,113 @@ By forking the GitHub Repository we make a copy of the original repository on ou
 
 | Key | Value
 |:-------:|:--------|
+| AWS_ACCESS_KEY_ID  |    |
+| AWS_SECRET_ACCESS_KEY  |    |
 | DATABASE_URL  |    |
-| IP  |    |
-|  PORT |    |
-|  SECRET_KEY   |     |
+| EMAIL_HOST_PASS  |    |
+| EMAIL_HOST_USER  |    |
+| STRIPE_PUBLIC_KEY  |    |
+| STRIPE_SECRET_KEY  |    |
+| STRIPE_WH_SECRET  |    |
+| USE_AWS  |    |
+| SECRET_KEY   |     |
 
 Actual Enviroment variables not disclosed for security
+
+#### Amazon Web Services - AWS & Cloning Instructions
+
+In this project for the storing of static files and images i used Amazon Web Services. The steps I took to achieve this are listed below. 
+
+1. Open up [Amazon Web Services](https://aws.amazon.com/) in your browser
+2. Click on Create AWS Account 
+3. You will need to complete all of the required questions asked by Amazon during the sign in process relative to you.
+4. Once registration is complete you can navigate to your AWS dashboard
+5. I used Amazon S3 services, if its your first time on the dashboard the quickest way to find it is to type S3 into the search bar. 
+6. When you select S3 you will see a button that says "Create Bucket", click this and give your bucket a name. Tip: Name your bucket something relevant to the project its associated with. You will also need to select the region closest to you in the drop down menu also on this page. 
+7. Un-tick the box that says "Block all public access". AWS may give you a warning but you can ignore this as the static files need to be public. Now click the "Create bucket" button
+
+> Go to bucket properties<br>
+> Turn on static web hosting<br>
+> in the index and error text inputs, add index.html and error.html and then save<br>
+
+8. On the permissions tab in the CORS configuration section i used the code below.
+
+![CORS Configuration](media/screengrabs/cors_config.jpg)
+
+
+9. Now go to the bucket policy tab and select policy generator. I selected the following:<br>
+> Type Of Policy: S3 bucket policy<br>
+> From action drop down select: "get object"<br>
+> You will be asked for your ARN, copy and paste it from the bucket policy page.<br>
+> Click add statement<br>
+> Then click on the generate policy button<br>
+> Then copy and paste the new policy thats generated into your bucket policy<br>
+> Be sure to add /* onto the end of the resources key<br>
+> Click save.<br>
+
+10. Now go to Access Control List, set list objects permission to everyone (Public)
+
+11. We now ned to create a new group and user to access the bucket. Navigate back to the search page and type in the search box IAM (Identity Access Management) 
+> Click create a new group and name it, a good one is manage-`insert project name here`<br>
+> Click through the pages and click on the create group button<br>
+
+12. Now we need ot create a group policy. Click on policies option in the menu and click on create policy
+> Select the JSON tab and then import managed policies.
+> search s3 and select on Amazons3fullaccess and import.
+> In the resources section, paste in the ARN that we used previously. You will want to enter the ARN twice and at the end of the second one add a *
+
+> Click through to review policy, give it a name and description and click generate policy
+
+13. Now click on groups again from the side menu, select the group you had previously created, click attach policy, search for the policy we created using the search bar, and then click attach policy. 
+
+14. Finally we need ot create a user. Click users from the menu, click add user, create a user name, select programmatic access and click next. 
+
+15. Select the group to add your user too, click through to the end and then click create user. Download the CSV file containing the user keys needed to access the app<br>
+<strong>Warning: Do not share the keys from this CSV file with anyone or make them public by pushing them to your Github</strong><br><br>
+
+#### Connect bucket to Django & Cloning Instructions
+
+To connect Django to the bucket I followed the following steps. 
+
+1. Install 2 new packages
+`pip3 install boto3`
+`pip3 install django-storages`
+
+2. Again we need to freeze these so they are added to the requirements.txt file and deployed ot Heroku when we deploy
+`pip3 freeze > requirements.txt`
+
+3. In settings.py we will then need to add `storages` to the installed apps section.
+
+4. An environment variable called USE_AWS needs to be set up to run the code on Heroku.
+
+5. Now back in Heroku click on settings tab and then click reveal config vars, set up the environmental variables as required. USE_AWS should have a value of True.
+
+6. At this point i also deleted the `DISABLE_COLLECTSTATIC` variable. 
+
+7. Now back in Gitpod we need to create a custom_storages.py file to tell django that in production we want to use Amazon S3 to store our static and media files. The 2 custom classes we need ot use to action this is:
+
+`class StaticStorage(S3Boto3Storage):`
+&nbsp;&nbsp;`location = settings.STATICFILES_LOCATION`
+
+`class MediaStorage(S3Boto3Storage):`
+&nbsp;&nbsp;`location = settings.MEDIAFILES_LOCATION`
+
+8. Now save, add, commit and push to Github for the above changes to take place.
+
+#### Add Media files to AWS & Cloning Instructions
+
+* Finally we need to upload all the images to S3. To do this i followed the following steps:
+
+1. Back on AWS in your AWS bucket, create a new folder called media
+
+2. Select upload and then upload all your image folders and files. When uploading the files be sure to set the permissions to Everyone (Public access) 
+
+#### Stripe & Cloning Instructions
+
+The final step now is to add the stripe keys to the config variables. These values you can get from your stripe dashboard. All of the config variables you need for this project can be seen in the image below: 
+
+Remember all of your config vars need to match what you have in your settings.py file.
+
 ## Credits
 ### Code
 - How to make card images the same size as each other [Stack Overflow](https://stackoverflow.com/questions/37287153/how-to-get-images-in-bootstraps-card-to-be-the-same-height-width)
