@@ -24,6 +24,7 @@ This project has been created using HTML, CSS, JavaScript and Django. Stripe was
     * [Profile page](#profile-page)
     * [FAQs Page](#faqs-page)
     * [Sign Up Page](#sign-up-page)
+    * [Custom 404 Page](#custom-404-page)
     * [CRUD](#crud)
    
    
@@ -160,6 +161,10 @@ I have stuck to a very simplistic black and white colour scheme. The pops of col
   The sign up page is presented to users if they choose to register either by selecting 'Register' from the My Account dropdown or as part of the checkout process. They are reminded that if they already have an account they can simply 'Sign In' instead. The required fields are email, username and password. Notifications are set up to alert users they are already registered or the password they have selected is too short, too easy etc..
   I feel I have the right balance between features non-registered and registered users have access to. Guests can still make purchases which is the purpose of the site and message the site owner but registered users have the added features of being able to leave reviews and checkout quicker. This could be changed in the future if the site owner wanted new features to be restricted to registered users only.
 
+- ### Custom 404 Page    
+  ![Custom 404 Page](media/screengrabs/404.jpg)    
+  I created a custom 404 error page which users will be directed to if they try to navigate to a non-registered URL. Having a custom page that reflects the styling of the main site creates a more professional image. The navbar is present at the top of the page but there is also a prominent button to direct users straight back to the home page.
+  
 - ### CRUD    
   Within my site users have the ability to:
   * CREATE by adding reviews and sending messages 
@@ -433,6 +438,7 @@ Remember all of your config vars need to match what you have in your settings.py
 - How to add Product Reviews [Medium](https://medium.com/code-with-stein/product-reviews-how-to-build-an-ecommerce-website-using-django-3-and-vue-js-part-20-1ecc788a1603)
 - How to make card images the same size as each other [Stack Overflow](https://stackoverflow.com/questions/37287153/how-to-get-images-in-bootstraps-card-to-be-the-same-height-width)
 - Resetting db in Django by Farheen Shahid [Scaler.com](https://www.scaler.com/topics/django/resetting-db-in-django/)
+- Creating a custom 404 page in Django [W3 Schools](https://www.w3schools.com/django/django_404.php)
 ### Content    
 Product images sourced from Pets@Home. All text content created by myself. Website for educational purposes only.    
 
