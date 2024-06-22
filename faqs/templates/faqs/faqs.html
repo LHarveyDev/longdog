@@ -2,85 +2,91 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
 <div class="overlay"></div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col text-center mt-3">
-                <h2 class="logo-font">FAQs</h2>
-                <div>
-                <img src="{{ MEDIA_URL }}faqs_NEW.jpg" alt="two sighthounds wearing scarves" class="img-fluid">
-                </div>
-                <div id="accordion">
-                    <div class="card">
-                      <div class="card-header">
-                        <a class="card-link" data-toggle="collapse" href="#collapseOne">
-                          How do I measure my dog?
-                        </a>
-                      </div>
-                      <div id="collapseOne" class="collapse" data-parent="#accordion">
-                        <div class="card-body">
-                            <p>All our dog clothing is available in sizes Small, Medium or Large. The measurement you will need is the length of the back. Please measure from the base of the neck to the top of the tail. We recommend taking the measurement at least twice and you may find it easier to use a piece of string and then measure that. Please don't allow any extra when measuring as this has already been accounted for.
-                            <br>
-                            SMALL: 22"- 24"
-                            <br>
-                            MEDIUM: 26"- 28"
-                            <br>
-                            LARGE: 30"- 32"</p>
-                            <img src="{{ MEDIA_URL }}size_chart.jpg" alt="graphic showing how to measure your dog" class="img-fluid">
-                        </div>
-                      </div>
-                    </div>
-                  
-                    <div class="card">
-                      <div class="card-header">
-                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
-                          Delivery
-                        </a>
-                      </div>
-                      <div id="collapseTwo" class="collapse" data-parent="#accordion">
-                        <div class="card-body">
-                          Delivery is calculated as 10% of your total order. Don't forget if you spend £50 or more then delivery is totally free. We aim to deliver within 3 working days but cannot be held responsible for delays due to Royal Mail. Please wait at least 7 days before contacting us regarding an expected delivery.
-                        </div>
-                      </div>
-                    </div>
-                  
-                    <div class="card">
-                      <div class="card-header">
-                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-                          Returns
-                        </a>
-                      </div>
-                      <div id="collapseThree" class="collapse" data-parent="#accordion">
-                        <div class="card-body">
-                            Items requiring a refund must be returned within 30 days of the purchase. Any returned items must be unused and in their original packaging. Used items will not be accepted. You must complete the returns form that was included in your parcel. Returns will be processed and issued within 5 working days.
-                        </div>
-                      </div> 
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header">
-                          <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-                            Contact Us
-                          </a>
-                        </div>
-                        <div id="collapseThree" class="collapse" data-parent="#accordion">
-                          <div class="card-body">
-                              You can get in touch with us through our contact form <a href="{% url 'contact_us' %}"> here. </a> We aim to reply within 3 working days.
-                          </div>
-                        </div> 
-                      </div>
-                  
-                  </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col text-center mt-3">
+      <h2 class="logo-font">FAQs</h2>
+      <div>
+        <img src="{{ MEDIA_URL }}faqs_NEW.jpg" alt="two sighthounds wearing scarves" class="img-fluid">
+      </div>
+      <div id="accordion">
+        <div class="card">
+          <div class="card-header">
+            <a class="card-link" data-toggle="collapse" href="#collapseOne">
+              How do I measure my dog?
+            </a>
+          </div>
+          <div id="collapseOne" class="collapse" data-parent="#accordion">
+            <div class="card-body">
+              <p>All our dog clothing is available in sizes Small, Medium or Large. The measurement you will need is the
+                length of the back. Please measure from the base of the neck to the top of the tail. We recommend taking
+                the measurement at least twice and you may find it easier to use a piece of string and then measure
+                that. Please don't allow any extra when measuring as this has already been accounted for.
+                <br>
+                SMALL: 22"- 24"
+                <br>
+                MEDIUM: 26"- 28"
+                <br>
+                LARGE: 30"- 32"</p>
+              <img src="{{ MEDIA_URL }}size_chart.jpg" alt="graphic showing how to measure your dog" class="img-fluid">
             </div>
+          </div>
         </div>
+
+        <div class="card">
+          <div class="card-header">
+            <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+              Delivery
+            </a>
+          </div>
+          <div id="collapseTwo" class="collapse" data-parent="#accordion">
+            <div class="card-body">
+              Delivery is calculated as 10% of your total order. Don't forget if you spend £50 or more then delivery is
+              totally free. We aim to deliver within 3 working days but cannot be held responsible for delays due to
+              Royal Mail. Please wait at least 7 days before contacting us regarding an expected delivery.
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+              Returns
+            </a>
+          </div>
+          <div id="collapseThree" class="collapse" data-parent="#accordion">
+            <div class="card-body">
+              Items requiring a refund must be returned within 30 days of the purchase. Any returned items must be
+              unused and in their original packaging. Used items will not be accepted. You must complete the returns
+              form that was included in your parcel. Returns will be processed and issued within 5 working days.
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+              Contact Us
+            </a>
+          </div>
+          <div id="collapseFour" class="collapse" data-parent="#accordion">
+            <div class="card-body">
+              You can get in touch with us through our contact form <a href="{% url 'contact_us' %}"> here. </a> We aim
+              to reply within 3 working days.
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 {% endblock %}
