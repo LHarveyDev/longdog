@@ -226,18 +226,16 @@ Responsive on all device sizes - This was checked using [Am I Responsive](https:
 
 ### Code Validation
 - **HTML**    
-The [W3 HTML5](https://validator.w3.org/) validation tool was used. I validated by URL.  The following errors were observed, list elements not allowed as child of element nav.    
-![HTML Validator](media/screengrabs/html_validation1.jpg)    
-There were also errors due to Duplicate Id and attribute. This was due to the two seperate menu views for mobile and desktop. This does not cause any issues on the deployed site and can be ignored.      
-![HTML Validator](media/screengrabs/html_validation2.jpg)      
+The [W3 HTML5](https://validator.w3.org/) validation tool was used. I validated each page by direct input and URI.  There were no errors or warnings to show.
+![HTML Validator](media/screengrabs/html_validation.jpg)              
 - **CSS**    
-The [W3 CSS](https://jigsaw.w3.org/css-validator/) validation tool was used. I validated by URL. No errors were found. 
+The [W3 CSS](https://jigsaw.w3.org/css-validator/) validation tool was used. I validated by URI. No errors were found. 
 ![CSS Validator](media/screengrabs/css_validation.jpg)
 - **JS**    
 The [jshint](https://www.jshint.com/) validation tool was used. There were errors relating to the use of $ but this was necessary for stripe initialisation so can be dismissed. No other syntax errors were identified.        
 ![JS Validator](media/screengrabs/js_validation.jpg)
 - **PYTHON**    
-The [CI Python Linter](https://pep8ci.herokuapp.com/) validation tool was used. Errors relating to migration files and .vscode were ignored, all other errors were corrected to the best of my ability.        
+The [CI Python Linter](https://pep8ci.herokuapp.com/) validation tool was used. All python code was tested and the results were all clear, no errors found.      
     
 ### Manual Testing user stories
 I asked family, friends and work colleagues to test my site on their devices and report back any issues. This group encompassed a wide range of ages and abilities. I felt this gave me a fair representation of how my app would be used in a real world situation and the feedback was very useful.      
