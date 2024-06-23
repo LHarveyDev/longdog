@@ -8,8 +8,6 @@ from .models import Product, Category
 from .forms import ProductForm
 from reviews.models import ProductReview
 
-# Create your views here.
-
 
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
