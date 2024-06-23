@@ -19,7 +19,7 @@ def add_review(request):
             'reviewer': UserProfile.objects.get(user=request.user)
             })
     else:
-        # If user is unregistered then they form will not show
+        # If user is unregistered then the form will not show
         review_form = ProductReviewForm()
 
     if request.method == 'POST':

@@ -10,13 +10,16 @@ def contact_us(request):
         if messages_form.is_valid():
             try:
                 messages_form.save()
-                messages.success(request, "Your message to us has been successfully sent. We will be in contact as soon as possible")
+                messages.success(request, "Your message to us has been \
+                successfully sent. We will be in contact as soon as possible")
                 return redirect(reverse('home'))
             except Exception as e:
-                messages.error(request, "There was an error sending your message, please try to send it again")
+                messages.error(request, "There was an error sending your \
+                message, please try to send it again")
                 return redirect(reverse('contact_us'))
         else:
-            messages.error(request, "There was an error sending your message, please try to send it again")
+            messages.error(request, "There was an error sending your message, \
+            please try to send it again")
             return redirect(reverse('contact_us'))
     else:
         messages_form = ContactMessagesForm()
