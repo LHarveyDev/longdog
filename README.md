@@ -215,6 +215,8 @@ The Home Page (Mobile)
 ![Lighthouse](media/screengrabs/lighthouse_home_mobile.jpg)    
 The Products Page (Mobile)  
 ![Lighthouse](media/screengrabs/lighthouse_products_mobile.jpg)    
+The About Us Page (Desktop)  
+![Lighthouse](media/screengrabs/lighthouse_about_desktop.jpg)     
 The FAQs Page (Desktop)    
 ![Lighthouse](media/screengrabs/lighthouse_home_mobile.jpg)     
 
