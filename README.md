@@ -4,6 +4,8 @@ Longdog is my submission for Milestone Project 4. Longdog is a Full-Stack e-comm
 The basic features of browsing the content and making a purchase can be carried out without registering, however the user is encouraged to register in order to make future ordering simpler and they will also be able to contribute to the site by leaving feedback in the form of product reviews.
 This project has been created using HTML, CSS, JavaScript and Django. Stripe was utilised to facilitate payments and Bootstrap was used for design purposes.
 
+The live site is [here](https://longdog-be27da85e7e6.herokuapp.com/).
+
 ## Table Of Contents:
 1. [Design & Planning](#design-&-planning)
     * [User Stories](#user-stories)
@@ -22,6 +24,7 @@ This project has been created using HTML, CSS, JavaScript and Django. Stripe was
     * [Shopping Bag page](#shopping-bag-page)
     * [Checkout page](#checkout-page)
     * [Profile page](#profile-page)
+    * [Product Management page](#product-management-page)
     * [FAQs Page](#faqs-page)
     * [Sign Up Page](#sign-up-page)
     * [Custom 404 Page](#custom-404-page)
@@ -84,7 +87,9 @@ I have stuck to a very simplistic black and white colour scheme. The pops of col
 
 ## Features:
 - ### Top Header
-  The top of my site has the Longdog brand name top left. The search bar is situated in the middle of the screen in a prominent position. The 'My Account' and 'Shopping bag' icons are in the top right corner. This layout will be familiar to most users of e-commerce sites and will allow them to navigate the site intuitively.
+  The top of my site has the Longdog brand name top left. The search bar is situated in the middle of the screen in a prominent position. The 'My Account' and 'Shopping bag' icons are in the top right corner. This layout will be familiar to most users of e-commerce sites and will allow them to navigate the site intuitively.  
+  Clicking on the 'My Account' icon will display a dropdown inviting users to 'Register' or 'Login'. Once logged in the options become 'My Profile' and 'Logout', if logged in as the site admin then there is also the additional option of 'Product Management'. The Product Management page allows the admin to add new products really easily, products can also be deleted or edited by navigating to the relevant product and selecting the 'edit' or 'delete' button.  
+  The user can also go straight to the contents of their shopping bag by clicking on the basket icon. The contents will be displayed and the quantities can be altered or the product deleted, if the basket is empty then a message 'Your bag is empty' is displayed and the user is directed to 'Keep Shopping'.
 
   ![Nav bar mobile](media/screengrabs/top_header.jpg)
 - ### Navigation Bar    
@@ -148,7 +153,13 @@ I have stuck to a very simplistic black and white colour scheme. The pops of col
 - ### Profile Page    
   ![Profile page](media/screengrabs/profile.jpg)  
   The registered user has the advantage of the Profile page where their past orders can be viewed. The Default Delivery Information is also stored here making subsequent checkouts quicker. The registered user has the option of updating their information here as well.
-  There is a really nice amount of detail given on past orders with the order no., date, items and order total. You can also click on the order no. to access more detail such as delivery address and contact details. From the Profile page the user can access the dropdown menu under 'My Account' to Logout. the site admin will also see the added option of 'Site Management' from where products can be added or edited. 
+  There is a really nice amount of detail given on past orders with the order no, date, items and order total. You can also click on the order no. to access more detail such as delivery address and contact details. From the Profile page the user can access the dropdown menu under 'My Account' to Logout. the site admin will also see the added option of 'Product Management' from where products can be added.    
+
+- ### Product Management Page    
+  ![Product Management page](media/screengrabs/product_management.jpg)  
+  The Product Management page contains a form where the logged in site admin can add new products. This is a really quick and convenient way to manage the products without having to go to the database itself.  
+  The form contains dropdown fields to select the 'Category' and 'Sizes' and required text fields to enter the 'Name' and 'Description'. The 'Price' field takes either a numerical input (max digits=6, decimal places=2) or the amount can be selcted by using the up/down arrows. In the Price field I have added a validation error to the Model that flags an invalid entry of a negative value. The last field is for an image URL or the 'Select Image' button can be used to locate and upload a file. The options at the bottom of the form are then 'Cancel' or 'Add Product'. 
+  In order to edit or delete a product the admin must navigate to the product where underneath the image and name there will be found Edit and Delete options. If Edit is selected this will bring up the Product Management form pre-populated with the current information and this can be changed and saved. If Delete is selected the product is deleted and a confirmation message is displayed.  
 
 - ### FAQs Page    
   ![FAQs Page](media/screengrabs/faqs.jpg)    

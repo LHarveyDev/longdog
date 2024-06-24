@@ -1,6 +1,5 @@
+from django.core.exceptions import ValidationError
 from django.db import models
-
-# Create your models here.
 
 
 class Category(models.Model):
@@ -26,3 +25,8 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+    def clean(self):
+        super().clean()
+        if self.price <= 0:
+            raise ValidationError({'price': 'Price must be a positive value.'})
