@@ -1,10 +1,10 @@
 ![Am I Responsive](media/screengrabs/amiresponsive.jpg)
 # Longdog
-Longdog is my submission for Milestone Project 4. Longdog is a Full-Stack e-commerce site dedicated to the needs of Sighthound owners and their dogs. The site will sell clothing, toys and accessories, in fact anything a Longdog might require!
+Longdog is my submission for Code Institute Milestone Project 4. Longdog is a Full-Stack e-commerce site dedicated to the needs of Sighthound owners and their dogs. The site will sell clothing, toys and accessories, in fact anything a Longdog might require!
 The basic features of browsing the content and making a purchase can be carried out without registering, however the user is encouraged to register in order to make future ordering simpler and they will also be able to contribute to the site by leaving feedback in the form of product reviews.
 This project has been created using HTML, CSS, JavaScript and Django. Stripe was utilised to facilitate payments and Bootstrap was used for design purposes.
 
-The live site is [here](https://longdog-be27da85e7e6.herokuapp.com/).
+The live site is [here](https://longdog-be27da85e7e6.herokuapp.com/). Please note Longdog has been created for educational purposes only, no actual purchases can be made and no payments will be processed.
 
 ## Table Of Contents:
 1. [Design & Planning](#design-&-planning)
@@ -57,16 +57,18 @@ The live site is [here](https://longdog-be27da85e7e6.herokuapp.com/).
 - #### Returning Visitor Goals
 
     1. As a Returning Visitor, I want to log in and view my profile and past purchases.
-    2. As a Returning Visitor, I want to make a new or repeat purchase.
-    3. As a Returning Visitor, I want to message the site owner.
-    4. As a Returning Visitor, I want to leave a review of a product I have bought.
+    2. As a Returning Visitor, I want to look for newly added products or special offers.
+    3. As a Returning Visitor, I want to make a new or repeat purchase.
+    4. As a Returning Visitor, I want to message the site owner.
+    5. As a Returning Visitor, I want to leave a review of a product I have bought.
 
 - #### Frequent Visitor Goals
 
     1. As a Frequent Visitor, I want to log in and view my profile and past purchases.
-    2. As a Frequent Visitor, I want to make a new or repeat purchase.
-    3. As a Frequent Visitor, I want to message the site owner.
-    4. As a Frequent Visitor, I want to leave a review of a product I have bought.
+    2. As a Returning Visitor, I want to look for newly added products or special offers.
+    3. As a Frequent Visitor, I want to make a new or repeat purchase.
+    4. As a Frequent Visitor, I want to message the site owner.
+    5. As a Frequent Visitor, I want to leave a review of a product I have bought.
 
 ### Wireframes
   - Home Page Wireframe - [View](media/wireframes/home.png)
@@ -87,16 +89,16 @@ I have stuck to a very simplistic black and white colour scheme. The pops of col
 
 ## Features:
 - ### Top Header
-  The top of my site has the Longdog brand name top left. The search bar is situated in the middle of the screen in a prominent position. The 'My Account' and 'Shopping bag' icons are in the top right corner. This layout will be familiar to most users of e-commerce sites and will allow them to navigate the site intuitively.  
+  The top of my site has the Longdog brand name top left. The search bar is situated in the middle of the screen in a prominent position. The 'My Account' and 'Shopping bag' icons are in the top right corner. This layout will be familiar to most users of e-commerce sites and will allow them to navigate the site intuitively.   
+  ![Top Header](media/screengrabs/top_header.jpg)      
   Clicking on the 'My Account' icon will display a dropdown inviting users to 'Register' or 'Login'. Once logged in the options become 'My Profile' and 'Logout', if logged in as the site admin then there is also the additional option of 'Product Management'. The Product Management page allows the admin to add new products really easily, products can also be deleted or edited by navigating to the relevant product and selecting the 'edit' or 'delete' button.  
   The user can also go straight to the contents of their shopping bag by clicking on the basket icon. The contents will be displayed and the quantities can be altered or the product deleted, if the basket is empty then a message 'Your bag is empty' is displayed and the user is directed to 'Keep Shopping'.
 
-  ![Nav bar mobile](media/screengrabs/top_header.jpg)
 - ### Navigation Bar    
   I used Bootstrap to build my navigation bar, it collapses down on mobile screens and becomes a burger menu. The options available are HOME/ABOUT US/CLOTHING/HOMEWARE/FAQS. The navbar is fixed so it can be accessed easily from wherever the user is in the site.
 
   ![Nav bar mobile](media/screengrabs/navbar_mobile.jpg)    
-  On desktop the user has the same options apart from Home as the Longdog logo at top left will return users to the home page
+  On desktop the user has the same options apart from 'Home' as the Longdog logo at top left will return users to the home page
 
   ![Nav bar desktop](media/screengrabs/navbar_desktop.jpg)    
 
@@ -248,7 +250,7 @@ The [W3 CSS](https://jigsaw.w3.org/css-validator/) validation tool was used. I v
 The [jshint](https://www.jshint.com/) validation tool was used. There were errors relating to the use of $ but this was necessary for stripe initialisation so can be dismissed. No other syntax errors were identified.        
 ![JS Validator](media/screengrabs/js_validation.jpg)
 - **PYTHON**    
-The [CI Python Linter](https://pep8ci.herokuapp.com/) validation tool was used. All python code was tested and the results were all clear, no errors found.      
+The [CI Python Linter](https://pep8ci.herokuapp.com/) validation tool was used. Flake8 error checking was used in my IDE throughout development. All custom python code was tested in the CI Python Linter and the results were all clear, no errors found.      
     
 ### Manual Testing user stories
 I asked family, friends and work colleagues to test my site on their devices and report back any issues. This group encompassed a wide range of ages and abilities. I felt this gave me a fair representation of how my app would be used in a real world situation and the feedback was very useful.      
@@ -267,10 +269,16 @@ User tries to edit/delete a review not created by them | Edit/Delete buttons are
 |:-------:|:--------|
 | &check; | User can perform a search of the database
 | &check; | User can send a message to admin via the contact us form
+| &check; | User can add a product to the basket and adjust quantity or remove it
+| &check; | User can progress to checkout and complete payment
 | &check; | User can register successfully and has access to their profile page
+| &check; | Registered User can view past orders
+| &check; | Registered User can update personal details
 | &check; | Registered User can add a review
 | &check; | Registered User can delete their own review
-| &check; | Registered User can log out  
+| &check; | Registered User can log out
+| &check; | Admin can add a product
+| &check; | Admin can edit/delete products  
 ## Bugs
 List of bugs and how I fixed them.
 | Bug | Fix
