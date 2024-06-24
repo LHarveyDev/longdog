@@ -278,7 +278,7 @@ User tries to edit/delete a review not created by them | Edit/Delete buttons are
 | &check; | Registered User can delete their own review
 | &check; | Registered User can log out
 | &check; | Admin can add a product
-| &check; | Admin can edit/delete products  
+| &check; | Admin can edit/delete products 
 ## Bugs
 List of bugs and how I fixed them.
 | Bug | Fix
