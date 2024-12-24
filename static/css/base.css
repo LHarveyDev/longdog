@@ -328,7 +328,7 @@ input[name='q']::placeholder {
     }
 }
 
-.saluki_home.jpg {
+.saluki_home_crop1.jpg {
 	width: 3000px;
 	height: auto;
 }
