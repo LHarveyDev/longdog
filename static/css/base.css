@@ -327,3 +327,9 @@ input[name='q']::placeholder {
         padding: .25rem .5rem !important;
     }
 }
+
+.saluki_home.jpg {
+	width: 300px;
+	height: auto;
+}
+	
